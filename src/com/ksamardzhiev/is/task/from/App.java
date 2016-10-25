@@ -1,5 +1,6 @@
 package com.ksamardzhiev.is.task.from;
 
+import java.util.Scanner;
 import java.util.Stack;
 
 public class App {
@@ -8,8 +9,23 @@ public class App {
 		System.out.println("Application start...");
 		Utils utils = new Utils();
 		
+		//Take user input
+		Scanner scanner = new Scanner (System.in);
+		System.out.print("Enter numbre of frogs: ");  
+		int input = scanner.nextInt();
+		
 		//Generate the searching pattern
-		String pattern = ">>>>_<<<<";
+		String pattern = "";
+		for(int i = 0; i <= input * 2; i++){
+			if(i < input){
+				pattern += ">";
+			} else if (i > input){
+				pattern += "<";
+			} else {
+				pattern += "_";
+			}
+		}
+
 		String targetPattern = utils.generateSearchingPattern(pattern);
 		System.out.println("Start with pattern: " + pattern);
 		System.out.println("Search for pattern: " + targetPattern);
